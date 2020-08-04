@@ -13,11 +13,12 @@
 #' @import purrr
 #'
 #' @export
-sing_day <- function(dataset, line, phrase_col){
+sing_line <- function(dataset, line, phrase_col){
 
   phrases <- dataset %>% pull({{phrase_col}})
-
-  #????
-
+  # pmap_chr(xmas, ~make_phrase)
+  for (i in line){
+  return(glue("On the {line} day of Christmas, my true love sent to me, {phrases[i]} and {phrases[i-1]}"))
+}
 
 }
