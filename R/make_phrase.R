@@ -16,10 +16,9 @@
 #'
 #' @export
 
-
-make_phrase <- function(num, num_word, item, verb, adjective, location){
+make_phrase <- function(dataset, num_word, item, verb, adjective, location){
   
-  
+  item<-pluralize_gift(item)
   verb <- str_replace_na(verb, "")
   adjective <- str_replace_na(adjective, "")
   location <- str_replace_na(location, "")
@@ -27,7 +26,8 @@ make_phrase <- function(num, num_word, item, verb, adjective, location){
   sentence<-str_trim(sentence)
 
   return(sentence)
-
+dataset<-dataset%>%mutate(day=words(num_word))
+dataset<-dataset%>%mutate(full_phrase=sentence)
 
 }
 
